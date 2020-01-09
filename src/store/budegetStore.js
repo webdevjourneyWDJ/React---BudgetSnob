@@ -1,29 +1,30 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import expensesReducer from '../reducers/expenesesReducer';
+import filterReducer from '../reducers/filterReducer';
+
+const stateDemo = {
+    expenses:[{
+        id: '123sdf4sdf231',
+        description: 'Rental Truck',
+        note: "becuase it was a cyber truck",
+        amount: "1",
+        createdAt: 0
+    }],
+    filters: {
+        keyword: "rent",
+        sortby: "amount",
+        startDate: undefined,
+        endDate: undefined
+    }
+}
+
 
 export default () => {
-    const store = createStore((state = {counter:0}, action) => {
-        switch(action.type){
-            case 'INCREMENT':
-                return {
-                    counter: state.counter + action.incBy
-                };
-            case 'DECREMENT':
-                return {
-                    counter: state.counter - action.decBy
-                }
-            case 'SET': 
-                return {
-                    counter: action.setBy
-                }
-            case 'RESET':
-                return {
-                    counter: 0
-                }            
-            default:
-                return state
-        }
+    const store = createStore(combineReducers({
+        expenses: expensesReducer,
+        filters: filterReducer
         
-    });
+    }));
 
     return store
 }
