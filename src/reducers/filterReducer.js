@@ -6,7 +6,12 @@ const filterDefault = {
 }
 
 export default (state = filterDefault, action) => {
-    switch(action.type){          
+    switch(action.type){        
+        case "SET_KEY_WORD_FILTER":
+              return {
+                  ...state,
+                  keyword: action.keyword
+              }
         default:
             return state
     }
