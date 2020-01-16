@@ -1,7 +1,10 @@
 import React from 'react';
+import ExpenseList from './ExpenseList';
 
 const BudgetSnobHome =() => (
-    <div>Budget Snob Home</div>
+    <div>
+        <ExpenseList />
+    </div>
 )
 
 export default BudgetSnobHome;
