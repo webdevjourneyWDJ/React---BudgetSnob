@@ -25,7 +25,7 @@ const ex2 = store.dispatch(addExpense({description: "Coffee", amount: "16", note
 store.dispatch(sortByDate())
 
 store.dispatch(setStartDate(moment().format('L')))
-store.dispatch(setEndDate(moment().add(10, 'day').format('L')))
+store.dispatch(setEndDate(moment().add(100, 'day').format('L')))
 
 const state = store.getState();
 const data = getFilteredData(state.expenses, state.filters)
