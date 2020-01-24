@@ -12,20 +12,8 @@ import "./styles/styles.scss";
 const store = budgetStore();
 
 const ex1 = store.dispatch(addExpense({description: "truck rental", amount: "100", createdAt: moment().add(5, 'day').format('L')}))
-const ex2 = store.dispatch(addExpense({description: "Coffee", amount: "16", note: "this is per bag", createdAt: moment().add(9, 'day').format('L')}))
+const ex2 = store.dispatch(addExpense({description: "Coffee", amount: "16", note: "this is per bag", createdAt: moment().add(1, 'day').format('L')}))
 
-// store.dispatch(removeExpense({id: ex1.expense.id}))
-
-// store.dispatch(editExpense(ex2.expense.id, {amount: 14}))
-
-// store.dispatch(setKeywordFilter('rent'))
-// store.dispatch(setKeywordFilter())
-
-// store.dispatch(sortByAmount())
-store.dispatch(sortByDate())
-
-store.dispatch(setStartDate(moment().format('L')))
-store.dispatch(setEndDate(moment().add(100, 'day').format('L')))
 
 const state = store.getState();
 const data = getFilteredData(state.expenses, state.filters)
