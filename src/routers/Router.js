@@ -13,7 +13,7 @@ const Router = () => (
             <Switch>
                 <Route path="/" component={BudgetSnobHome} exact={true}/>
                 <Route path="/add" component={BudgetAdd}/>
-                <Route path="/edit" component={BudgetEdit}/>
+                <Route path="/edit/:id" component={BudgetEdit}/>
                 <Route component={PageNotFound}/>
             </Switch>
         </div>
