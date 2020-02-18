@@ -7,7 +7,9 @@
     "serve": "live-server public/",
     "build": "webpack --config webpack.prod.js",
     "dev-server": "webpack-dev-server --open --config webpack.dev.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -28,6 +30,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "moment": "^2.24.0",
     "react": "^16.12.0",
     "react-dates": "^21.7.0",

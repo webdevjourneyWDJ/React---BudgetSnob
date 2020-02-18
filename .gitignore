@@ -2,3 +2,7 @@ node_modules
 yarn-error.log
 yarn.lock
 package-lock.json
+public/bundle.js
+public/bundle.js.map
+public/style.css
+public/style.css.map
