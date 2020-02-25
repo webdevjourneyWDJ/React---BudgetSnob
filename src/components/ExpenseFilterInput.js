@@ -39,6 +39,8 @@ class ExpenseFilterInput extends React.Component{
                     numberOfMonths={1}
                     isOutsideRange={()=> false}
                     showClearDates={true}
+                    startDateId="start"
+                    endDateId="end"
                 />
             </div>
         )
