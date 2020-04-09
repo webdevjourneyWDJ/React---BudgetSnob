@@ -16,42 +16,44 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-const sub = database.ref().on('value', (snapshot) => {
-  console.log(snapshot.val());
-})
+export { firebase, database as default};
 
-//child_removed
-database.ref('expenses').on('child_removed', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-})
-
-//child_changed
-database.ref('expenses').on('child_changed', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-})
-
-//child_added
-database.ref('expenses').on('child_added', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-})
-
-// database.ref('expenses').push({
-//   description: "rental truck",
-//   note: "",
-//   amount: 450,
-//   createdAt: "03/10/2020"
+// const sub = database.ref().on('value', (snapshot) => {
+//   console.log(snapshot.val());
 // })
 
-// database.ref('expenses').push({
-//   description: "House payment",
-//   note: "",
-//   amount: 1700,
-//   createdAt: "03/10/2020"
+// //child_removed
+// database.ref('expenses').on('child_removed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
 // })
 
-database.ref('expenses').push({
-  description: "Gas Bill",
-  note: "",
-  amount: 160,
-  createdAt: "03/10/2020"
-})
+// //child_changed
+// database.ref('expenses').on('child_changed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
+
+// //child_added
+// database.ref('expenses').on('child_added', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
+
+// // database.ref('expenses').push({
+// //   description: "rental truck",
+// //   note: "",
+// //   amount: 450,
+// //   createdAt: "03/10/2020"
+// // })
+
+// // database.ref('expenses').push({
+// //   description: "House payment",
+// //   note: "",
+// //   amount: 1700,
+// //   createdAt: "03/10/2020"
+// // })
+
+// database.ref('expenses').push({
+//   description: "Gas Bill",
+//   note: "",
+//   amount: 160,
+//   createdAt: "03/10/2020"
+// })
