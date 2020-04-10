@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {removeExpense} from '../actions/ExpenseActions'
+import {startRemoveExpense} from '../actions/ExpenseActions'
 
 
 const ExpensesListItem = ({id, description, note, amount, createdAt, dispatch}) => (
@@ -12,7 +12,7 @@ const ExpensesListItem = ({id, description, note, amount, createdAt, dispatch}) 
             <p>Amount: ${amount}</p>
             {note && <p>Note: {note}</p>}
             <button onClick={() => {
-                dispatch(removeExpense({id}))
+                dispatch(startRemoveExpense({id}))
             }}>Remove</button>
         </div>
     )
