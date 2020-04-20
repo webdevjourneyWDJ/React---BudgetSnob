@@ -2,14 +2,14 @@ import * as firebase from 'firebase';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyD-pBT_HHfp5JIegti0s4nRJx1tu6Ug158",
-  authDomain: "budgetsnob-c19c9.firebaseapp.com",
-  databaseURL: "https://budgetsnob-c19c9.firebaseio.com",
-  projectId: "budgetsnob-c19c9",
-  storageBucket: "budgetsnob-c19c9.appspot.com",
-  messagingSenderId: "98072429702",
-  appId: "1:98072429702:web:dd772ca5884971e132bd07",
-  measurementId: "G-990SJHCLV1"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
