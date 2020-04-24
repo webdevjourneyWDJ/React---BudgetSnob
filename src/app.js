@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import budgetStore from './store/budegetStore';
-import Routes from './routers/Router';
+import Routes, {history} from './routers/Router';
 import {startSetExpenses} from './actions/ExpenseActions';
 import "./styles/styles.scss";
 import {firebase} from './firebase/firebase';
@@ -15,17 +15,27 @@ const storeProvider = (
     </Provider>
 )
 
-ReactDOM.render(<p>Lodaing...</p>, document.getElementById('app'));
+let hasRendered = false;
+const renderApp = () => {
+    if(!hasRendered){
+        ReactDOM.render(storeProvider, document.getElementById('app'));
+        hasRendered = true
+    }
+}
 
-store.dispatch(startSetExpenses()).then(() => {
-    ReactDOM.render(storeProvider, document.getElementById('app'));
-});
+ReactDOM.render(<p>Lodaing...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        console.log('Logged IN');        
+        store.dispatch(startSetExpenses()).then(() => {
+            renderApp();
+            if(history.location.pathname === '/'){
+                history.push('/dashboard');
+            }
+        });       
     }else{
-        console.log('Logged OUT'); 
+        renderApp();
+        history.push('/') 
     }
 })
 
