@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import budgetStore from './store/budegetStore';
 import Routes, {history} from './routers/Router';
 import {startSetExpenses} from './actions/ExpenseActions';
+import {login, logout} from './actions/auth'
 import "./styles/styles.scss";
 import {firebase} from './firebase/firebase';
 
@@ -27,6 +28,7 @@ ReactDOM.render(<p>Lodaing...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
+        store.dispatch(login(user.uid));
         store.dispatch(startSetExpenses()).then(() => {
             renderApp();
             if(history.location.pathname === '/'){
@@ -34,6 +36,7 @@ firebase.auth().onAuthStateChanged((user) => {
             }
         });       
     }else{
+        store.dispatch(logout());
         renderApp();
         history.push('/') 
     }
